@@ -1,0 +1,18 @@
+#!/bin/bash
+
+docker run --name {{ project_name }}_postgres -p 5432:5432 -e POSTGRES_USER=${PGUSER} -e POSTGRES_PASSWORD=${PGPASSWORD} -d postgres
+
+RETRIES=5
+
+until psql -h localhost -d postgres -c "select 1" > /dev/null 2>&1 || [ $RETRIES -eq 0 ]; do
+  echo "Waiting for postgres server, $((RETRIES--)) remaining attempts..."
+  sleep 1
+done
+
+createdb -h localhost {{ project_name }}
+
+python manage.py migrate
+
+# createsuperuser
+echo "import os;from django.contrib.auth.models import User; User.objects.filter(email=os.environ.get('DJANGO_SUPERUSER_EMAIL')).delete(); User.objects.create_superuser(os.environ.get('DJANGO_SUPERUSER_USERNAME'), os.environ.get('DJANGO_SUPERUSER_EMAIL'), os.environ.get('DJANGO_SUPERUSER_PASSWORD'))" | python manage.py shell
+echo "Add user 'root' as Django's SuperAdmin "

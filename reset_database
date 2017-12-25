@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker rm -f $(docker ps -aqf "name={{ project_name }}_postgres")
+./start_local_postgres
