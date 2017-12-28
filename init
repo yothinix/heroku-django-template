@@ -1,11 +1,12 @@
 #!/bin/bash
 
-read -p "Enter project name : " project_name
+read -p "Enter project name : " PROJECT_NAME
 
 for name in reset_database restore_latest_db start_local_postgres
 do
   mv $name $name.bak
-  sed 's/{{ project_name }}/${project_name}/g' $name.bak > $name
+  CMD="sed 's/{{ project_name }}/$PROJECT_NAME/g' $name.bak > $name"
+  eval $CMD
   chmod +x $name
   rm $name.bak
 done
