@@ -11,3 +11,7 @@ do
   rm $name.bak
 done
 
+CMD="sed 's/{{ project_name }}/$PROJECT_NAME/g' env > .env"
+eval $CMD
+rm env
+
