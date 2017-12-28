@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "Enter project name : " PROJECT_NAME
+PROJECT_NAME=${PWD##*/}
 
 for name in reset_database restore_latest_db start_local_postgres
 do
