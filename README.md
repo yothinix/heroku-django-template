@@ -8,6 +8,16 @@ An utterly fantastic project starter template for Django 2.0.
 - Enhancements to Django's static file serving functionality via WhiteNoise.
 - Latest Python 3.6 runtime environment.
 
+## Required Package
+```
+# Python
+Django==2.0
+pipenv>=9.0.1
+```
+
+- Docker
+- Postgresql >= 9.6
+
 ## How to Use
 
 To use this project, follow these steps:
@@ -15,6 +25,9 @@ To use this project, follow these steps:
 1. Create your working environment.
 2. Install Django (`$ pipenv install django`)
 3. Create a new project using this template
+4. Update database utils script by `cd <project name>` and run `./init && rm init`
+5. Start local postgres container by execute `./start_local_postgres`
+6. Start Django development server by running `python manage.py runserver`
 
 ## Creating Your Project
 
