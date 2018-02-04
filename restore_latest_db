@@ -1,7 +1,7 @@
 #!/bin/bash
 
-heroku pg:backups:capture
-heroku pg:backups:download
+heroku pg:backups:capture -a {{ project_name }}
+heroku pg:backups:download -a {{ project_name }}
 
 pg_restore --verbose --clean --no-acl --no-owner -h localhost -d {{ project_name }} latest.dump
 rm -rf ./latest.dump
