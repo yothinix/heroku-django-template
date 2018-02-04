@@ -17,7 +17,20 @@ django = "==2.0"
 gunicorn = "==19.7.1"
 "psycopg2" = "==2.7.3.2"
 whitenoise = "==3.3.1"
+djangorestframework = "*"
+markdown = "*"
+django-extensions = "*"
+django-filter = "*"
+ipython = "*"
+pendulum = "*"
+coreapi = "*"
+django-cors-headers = "*"
+django-import-export = "*"
 
 
 [dev-packages]
 
+neovim = "*"
+ipdb = "*"
+werkzeug = "*"
+prettyprinter = "*"
