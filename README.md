@@ -33,7 +33,7 @@ To use this project, follow these steps:
 
 Using this template to create a new Django app is easy::
 
-    $ django-admin.py startproject --template=https://github.com/heroku/heroku-django-template/archive/personal_base.zip --name=Procfile helloworld
+    $ django-admin.py startproject --template=https://github.com/yothinix/heroku-django-template/archive/personal_base.zip --name=Procfile helloworld
 
 (If this doesn't work on windows, replace `django-admin.py` with `django-admin`)
 
